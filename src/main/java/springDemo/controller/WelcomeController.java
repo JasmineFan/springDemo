@@ -25,14 +25,33 @@ public class WelcomeController {
 	}
 	
 	@RequestMapping("user/{id}")
-	public String getUserRest(int id, ModelMap model){
+	public String getUserRest(Integer id, ModelMap model){
 		
 		User user = welcomeService.getUser(id);
-		model.put("name", user.getUsername());
+		model.put("user", user);
 
 		return "user";
 	}
 	
+	@RequestMapping("regster")
+	public String gotoRegister() {
+		return "userRegister";
+	}
+	
+	@RequestMapping("userList")
+	public String userList(ModelMap model) {
+		
+		model.put("list", welcomeService.getAllUser());
+		return "userList";
+	}
+	
+	@RequestMapping("doRegister")
+	public String doRegister(User user, ModelMap model) {
+		
+		welcomeService.addUser(user);
+		model.put("list", welcomeService.getAllUser());
+		return "userList";
+	}
 	
 //	@RequestMapping("user/{id}", RequestMethod.)
 //	public String getUserRest(int id, ModelMap model){

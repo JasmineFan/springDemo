@@ -1,6 +1,9 @@
 package springDemo.dao;
 
+import java.util.List;
+
 import springDemo.model.Permission;
+import springDemo.model.Role;
 
 public interface PermissionMapper {
     int deleteByPrimaryKey(Integer id);
@@ -11,6 +14,8 @@ public interface PermissionMapper {
 
     Permission selectByPrimaryKey(Integer id);
 
+    List<Permission> selectAll();
+    
     int updateByPrimaryKeySelective(Permission record);
 
     int updateByPrimaryKey(Permission record);

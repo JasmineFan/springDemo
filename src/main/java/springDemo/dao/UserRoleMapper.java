@@ -1,5 +1,7 @@
 package springDemo.dao;
 
+import java.util.List;
+
 import springDemo.model.UserRole;
 
 public interface UserRoleMapper {
@@ -11,6 +13,8 @@ public interface UserRoleMapper {
 
     UserRole selectByPrimaryKey(Integer id);
 
+    List<UserRole> selectAll();
+    
     int updateByPrimaryKeySelective(UserRole record);
 
     int updateByPrimaryKey(UserRole record);

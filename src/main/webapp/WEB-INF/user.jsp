@@ -5,6 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<label>${name}</label>
+	<label>id</label> ${user.id}<br>
+	<label>name</label> ${user.username}<br>
+	<label>password</label> ${user.password}<br>
+	<label>state</label> ${user.state}<br>
 </body>
 </html>

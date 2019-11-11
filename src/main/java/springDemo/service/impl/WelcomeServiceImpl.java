@@ -1,5 +1,7 @@
 package springDemo.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,16 @@ public class WelcomeServiceImpl implements WelcomeService {
 
 	public User getUser(int id) {
 		return userMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		return userMapper.selectAll();
+	}
+	
+	@Override
+	public void addUser(User user) {
+		
+		userMapper.insert(user);
 	}
 }
