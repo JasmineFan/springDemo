@@ -17,3 +17,15 @@ localhost:8080/SpringDemo/userList
 #登记新用户
 localhost:8080/SpringDemo/userRegister
 
+
+#添加Rest风格 
+@RequestBody @ResponseBody 
+需要在<mvn:driven>中添加FastJsonHttpMessageConverter
+或者 在handlerMapping 中添加 MappingJackson2HttpMessageConverter
+
+
+localhost:8080/SpringDemo/rest/user/1 GET		查询
+localhost:8080/SpringDemo/rest/user/1 DELETE	删除
+localhost:8080/SpringDemo/rest/user/ PUT		修改
+localhost:8080/SpringDemo/rest/user/ POST		增加
+
