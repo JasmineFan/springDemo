@@ -24,8 +24,17 @@ public class WelcomeServiceImpl implements WelcomeService {
 	}
 	
 	@Override
-	public void addUser(User user) {
-		
-		userMapper.insert(user);
+	public int addUser(User user) {
+		return userMapper.insertSelective(user);
+	}
+
+	@Override
+	public int deleteUser(int id) {
+		return userMapper.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public int updateUser(User user) {
+		return userMapper.updateByPrimaryKeySelective(user);
 	}
 }

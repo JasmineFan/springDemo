@@ -17,18 +17,18 @@ public class LogAspect {
 
     @Around("execution(* springDemo..*(..))")
     public Object process(ProceedingJoinPoint joinPoint) throws Throwable {
-    	logger.info(">>>>执行目标方法		: " + joinPoint.getSignature().getName());
-    	logger.info(">>>>执行目标方法参数	: " + Arrays.toString(joinPoint.getArgs()));
+    	logger.info(">>>>target function: " + joinPoint.getSignature().getName());
+    	logger.info(">>>>arguments		: " + Arrays.toString(joinPoint.getArgs()));
     	
         Object returnValue;
 		try {
 			returnValue = joinPoint.proceed();
 		} catch (Exception e) {
-			logger.error("<<<<执行目标方法异常	: " + e.getMessage());
+			logger.error("<<<<function exception: " + e.getMessage());
 			throw e;
 		}
 		
-		logger.info("<<<<执行目标方法返回值	: " + returnValue);
+		logger.info("<<<<function return: " + returnValue);
 		return returnValue;
     }
 
